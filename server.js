@@ -27,9 +27,9 @@ app.get("/api/whoami", function(req, res) {
   var userIP = req.headers["x-forwarded-for"];
   var userLanguage = req.headers["accept-language"];
   var userSystemInfo = req.headers["user-agent"];
-
+  var realIP = userIP.split(",")[0];
   res.send({
-    ipaddress: userIP,
+    ipaddress: realIP,
     language: userLanguage,
     software: userSystemInfo
   });
